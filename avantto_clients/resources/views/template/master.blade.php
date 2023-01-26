@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Blank Page</title>
+    <title>Clientes Avantto</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{asset ('template/plugins/fontawesome-free/css/all.min.css')}}">
@@ -139,25 +139,19 @@
                         <li class="nav-item">
                             <a href="/" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard                                    
-                                </p>
+                                <p>Dashboard</p>
                             </a>                            
                         </li>                                                            
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Clientes                                    
-                                </p>
+                                <i class="nav-icon fas fa-regular fa-address-book"></i>
+                                <p>Clientes</p>
                             </a>                            
                         </li>                                                            
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Aeronaves
-                                </p>
+                                <i class="nav-icon fas fa-solid fa-plane-departure"></i>
+                                <p>Aeronaves</p>
                             </a>                            
                         </li>                                                            
                     </ul>
@@ -171,7 +165,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Blank Page</h1>
+                            <h1>@yield('main_title')</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -184,7 +178,7 @@
             </section>
 
             <section class="content">
-                
+                @yield('main')
             </section>
         </div>
 
