@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PlaneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('template.master');
+    return view('dashboards.dashboardindex');
 });
 
-Route::view('clientindex', 'clients.clientindex');
+Route::resource('clientindex', ClientController::class);
+Route::get('clientadd', 'ClientController@create');
+Route::get('clientindex/{id}/', 'ClientController@show')->name('client.show');
+Route::get('clientindex/{id}/edit', 'ClientController@edit')->name('client.edit');
+
+Route::resource('planeindex', PlaneController::class);
+Route::get('planeadd', 'PlaneController@create');
+Route::get('planeindex/{id}/', 'PlaneController@show')->name('plane.show');
+Route::get('planeindex/{id}/edit', 'PlaneController@edit')->name('plane.edit');

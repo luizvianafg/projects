@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PlaneModel;
 use Illuminate\Http\Request;
 
 class PlaneController extends Controller
@@ -13,7 +14,8 @@ class PlaneController extends Controller
      */
     public function index()
     {
-        //
+        $plane = PlaneModel::orderBy('created_at', 'desc')->get();
+        return view('planes.planeindex', compact('plane'));
     }
 
     /**
@@ -23,7 +25,7 @@ class PlaneController extends Controller
      */
     public function create()
     {
-        //
+        return view('planes.planeadd');
     }
 
     /**
@@ -34,7 +36,19 @@ class PlaneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+       'marca' => 'required',
+       'modelo' => 'required',
+       'ano_fabricacao' => 'required',
+       'proprietario' => 'required',       
+       ]);
+
+       $client = PlaneModel::create([
+       'marca' => $request->marca,
+       'modelo' => $request->modelo,
+       'ano_fabricacao' => $request->ano_fabricacao,
+       'proprietario' => $request->proprietario,       
+       ]);
     }
 
     /**
@@ -45,7 +59,8 @@ class PlaneController extends Controller
      */
     public function show($id)
     {
-        //
+        $detail = PlaneModel::find($id);
+        return view('planes.planedetail', compact('detail'));
     }
 
     /**
@@ -56,7 +71,8 @@ class PlaneController extends Controller
      */
     public function edit($id)
     {
-        //
+        $edit = PlaneModel::find($id);
+        return view('planes.planeedit', compact('edit'));
     }
 
     /**
@@ -68,7 +84,19 @@ class PlaneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+        'marca' => 'required',
+        'modelo' => 'required',
+        'ano_fabricacao' => 'required',
+        'proprietario' => 'required',
+        ]);
+
+       PlaneModel::where('id', $id)->update([
+        'marca' => $request->marca,
+        'modelo' => $request->modelo,
+        'ano_fabricacao' => $request->ano_fabricacao,
+        'proprietario' => $request->proprietario,
+        ]);
     }
 
     /**
@@ -79,6 +107,7 @@ class PlaneController extends Controller
      */
     public function destroy($id)
     {
-        //
+        PlaneModel::destroy($id);
+        return redirect('/planeindex');
     }
 }
