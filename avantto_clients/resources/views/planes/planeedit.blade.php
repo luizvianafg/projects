@@ -10,7 +10,7 @@
             <div class="card-header">
                 <h3 class="card-title">Edite a Aeronave</h3>
             </div>
-            <form action="/clientindex/{{ $edit->id }}" method="POST">
+            <form action="/planeindex/{{ $edit->id }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="card-body">

@@ -12,7 +12,7 @@
 
         <div class="card-body">
             <a href="/clientindex/create" class="btn btn-primary mb-2">Adicione um lead</a>
-            <table class="table table-bordered">
+            <table id="clients" class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>Nome do Lead</th>
@@ -37,13 +37,17 @@
                                     <a href="{{ route('client.edit', $cliente->id) }}" class="btn btn-warning">Editar</a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Você tem certeza?')">Deletar</button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+                {{ $cliente->paginate() }}
+            </div>
         </div>
     </div>
 @endsection

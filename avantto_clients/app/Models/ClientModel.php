@@ -12,4 +12,14 @@ class ClientModel extends Model
     protected $table = 'lead';
     
     protected $guarded = [];
+
+    public static $rules_create = [
+    'nome_principal' => 'required',
+    'cargo' => 'required',
+    ];
+
+    public static $rules_update = [
+    'nome_principal' => 'required',
+    'ranking' => 'required',
+    ];
 }

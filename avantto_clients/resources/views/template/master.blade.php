@@ -204,6 +204,20 @@
     <script src="{{ asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('template/dist/js/adminlte.min.js?v=3.2.0') }}"></script>
     <script src="{{ asset('template/dist/js/demo.js') }}"></script>
+
+    <script>
+        $(function() {
+            $('#clients').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
 </body>
 
 </html>

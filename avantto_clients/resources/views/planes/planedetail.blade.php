@@ -1,13 +1,13 @@
 @extends('template.master')
 
 @section('main_title')
-    Detalhes do Lead
+    Detalhes da Aeronave
 @endsection
 
 @section('main')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Detalhes do Lead</h3>
+            <h3 class="card-title">Detalhes da Aeronave</h3>
         </div>
 
         <div class="card-body">

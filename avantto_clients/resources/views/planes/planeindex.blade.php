@@ -34,13 +34,17 @@
                                     <a href="{{ route('plane.edit', $planes->id) }}" class="btn btn-warning">Editar</a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Você tem certeza?')">Deletar</button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center">
+                {{ $planes->paginate() }}
+            </div>
         </div>
     </div>
 @endsection

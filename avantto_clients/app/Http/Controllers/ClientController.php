@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\ClientModel;
-use DB;
+use Illuminate\Http\Request;
+// use DB;
 
 class ClientController extends Controller
 {
@@ -15,7 +15,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $client = ClientModel::orderBy('created_at', 'desc')->get();
+        $client = ClientModel::orderBy('created_at', 'desc')->paginate(10);
         return view('clients.clientindex', compact('client'));
     }
 
@@ -36,23 +36,9 @@ class ClientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-       $request->validate([
-       'nome_principal' => 'required',
-       'ranking' => 'required',
-       'possivel_renda' => 'required',
-       'telefone_1' => 'required',
-       'email_1' => 'required|email',
-       ]);
-
-       $client = ClientModel::create([
-       'nome_principal' => $request->nome_principal,
-       'ranking' => $request->ranking,
-       'possivel_renda' => $request->possivel_renda,
-       'telefone_1' => $request->telefone_1,
-       'email_1' => $request->email_1,
-       ]);
-
+    {      
+       $request->validate(ClientModel::$rules_create);
+       ClientModel::create($request->all());
        return redirect('/clientindex');
     }
 
@@ -89,22 +75,8 @@ class ClientController extends Controller
      */    
     public function update(Request $request, $id)
     {
-        $request->validate([
-        'nome_principal' => 'required',
-        'ranking' => 'required',
-        'possivel_renda' => 'required',
-        'telefone_1' => 'required',
-        'email_1' => 'required|email',
-        ]);
-        
-        ClientModel::where('id', $id)->update([
-        'nome_principal' => $request->nome_principal,
-        'ranking' => $request->ranking,
-        'possivel_renda' => $request->possivel_renda,
-        'telefone_1' => $request->telefone_1,
-        'email_1' => $request->email_1,
-        ]);
-
+        $request->validate(ClientModel::$rules_update);
+        ClientModel::where('id', $id)->update($request->except(['_token', '_method']));
         return redirect('/clientindex');
     }
 

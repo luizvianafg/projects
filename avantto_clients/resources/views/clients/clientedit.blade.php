@@ -33,26 +33,26 @@
                     <div class="form-group">
                         <label for="possivel_renda">Possivel Renda</label>
                         <input type="text" class="form-control" id="possivel_renda" name="possivel_renda"
-                            value="{{ $edit->possivel_renda }}" placeholder="Selecione a renda do cliente">
+                            value="{{ $edit->possivel_renda }}" placeholder="Insira a renda do cliente">
                         @error('possivel_renda')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="telefone">Telefone</label>
-                        <input type="text" class="form-control" id="telefone" name="telefone"
-                            value="{{ $edit->telefone_1 }}" placeholder="Insira o telefone principal">
-                        @error('telefone')
+                        <label for="telefone_1">Telefone</label>
+                        <input type="text" class="form-control" id="telefone_1" name="telefone_1"
+                            value="{{ $edit->telefone_1 }}" placeholder="Insira o telefone_1 principal">
+                        @error('telefone_1')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email"
+                        <label for="email_1">Email</label>
+                        <input type="email_1" class="form-control" id="email_1" name="email_1"
                             value="{{ $edit->email_1 }}"
-                            placeholder="Insira o email principal
+                            placeholder="Insira o email_1 principal
                             ">
-                        @error('email')
+                        @error('email_1')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

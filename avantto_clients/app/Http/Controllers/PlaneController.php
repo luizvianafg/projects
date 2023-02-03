@@ -14,7 +14,7 @@ class PlaneController extends Controller
      */
     public function index()
     {
-        $plane = PlaneModel::orderBy('created_at', 'desc')->get();
+        $plane = PlaneModel::orderBy('created_at', 'desc')->paginate(10);
         return view('planes.planeindex', compact('plane'));
     }
 
@@ -43,12 +43,14 @@ class PlaneController extends Controller
        'proprietario' => 'required',       
        ]);
 
-       $client = PlaneModel::create([
+       PlaneModel::create([
        'marca' => $request->marca,
        'modelo' => $request->modelo,
        'ano_fabricacao' => $request->ano_fabricacao,
        'proprietario' => $request->proprietario,       
        ]);
+
+       return redirect('/planeindex');
     }
 
     /**
@@ -97,6 +99,8 @@ class PlaneController extends Controller
         'ano_fabricacao' => $request->ano_fabricacao,
         'proprietario' => $request->proprietario,
         ]);
+
+        return redirect('/planeindex');
     }
 
     /**
