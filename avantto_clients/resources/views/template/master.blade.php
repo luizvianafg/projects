@@ -10,6 +10,7 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('template/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css?v=3.2.0') }}">
+    <link rel="stylesheet" href="{{ asset('assets/app.css') }}">
 
     <script nonce="29a91bd9-d314-461d-89f1-b773fd7ca66b">
         (function(w, d) {
@@ -160,6 +161,12 @@
                             <a href="/planeindex" class="nav-link">
                                 <i class="nav-icon fas fa-solid fa-plane-departure"></i>
                                 <p>Aeronaves</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/landingindex" class="nav-link">
+                                <i class="nav-icon fas fa-solid fa-plane-departure"></i>
+                                <p>Locais de Pouso</p>
                             </a>
                         </li>
                     </ul>

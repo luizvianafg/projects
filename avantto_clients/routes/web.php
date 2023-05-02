@@ -28,3 +28,5 @@ Route::resource('planeindex', PlaneController::class);
 Route::get('planeadd', 'PlaneController@create');
 Route::get('planeindex/{id}/', 'PlaneController@show')->name('plane.show');
 Route::get('planeindex/{id}/edit', 'PlaneController@edit')->name('plane.edit');
+
+Route::resource('landingindex', LandingController::class);

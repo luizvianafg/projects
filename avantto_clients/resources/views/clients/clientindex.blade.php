@@ -45,7 +45,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center" id="paginate-client">
                 {{ $cliente->paginate() }}
             </div>
         </div>

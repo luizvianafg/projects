@@ -1,0 +1,52 @@
+/* Client Index */
+#paginate-client {
+    margin-top: 2rem;
+}
+
+#paginate-client nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#paginate-client nav > div:first-child {
+    margin-right: 1rem;
+}
+
+#paginate-client nav .pagination {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#paginate-client nav .pagination li {
+    margin: 0;
+}
+
+#paginate-client nav .pagination li:first-child a,
+#paginate-client nav .pagination li:last-child a {
+    padding: 0.5rem 0.75rem;
+}
+
+#paginate-client nav .pagination li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e2e8f0;
+    background-color: #fff;
+    color: #4a5568;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.25rem;
+    border-radius: 0.25rem;
+}
+
+#paginate-client nav .pagination li.active a {
+    background-color: #4a5568;
+    color: #fff;
+}
+
+#paginate-client nav .pagination li.disabled a {
+    color: #e2e8f0;
+    pointer-events: none;
+}
